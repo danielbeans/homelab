@@ -1,0 +1,19 @@
+---
+version: "3.8"
+services:
+  calibre:
+    container_name: calibre
+    image: crocodilestick/calibre-web-automated:latest
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TIMEZONE
+    volumes:
+      - /mnt/tank/docker/calibre/config:/config
+      - /mnt/tank/docker/calibre/ingest:/cwa-book-ingest
+      - /mnt/tank/docker/calibre/library:/calibre-library
+    restart: unless-stopped
+networks:
+  default:
+    external: true
+    name: nginx-proxy-manager

@@ -1,0 +1,75 @@
+---
+version: "3.8"
+x-common:
+  database: &a1
+    MYSQL_PASSWORD: $MYSQL_PASSWORD
+    MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+  panel: &a2
+    APP_URL: $APP_URL
+    APP_TIMEZONE: $TIMEZONE
+    APP_SERVICE_AUTHOR: $APP_SERVICE_AUTHOR
+  mail: &a3
+    MAIL_FROM: $MAIL_FROM
+    MAIL_DRIVER: smtp
+    MAIL_HOST: $MAIL_HOST
+    MAIL_PORT: $MAIL_PORT
+    MAIL_USERNAME: $MAIL_USERNAME
+    MAIL_PASSWORD: $MAIL_PASSWORD
+    MAIL_ENCRYPTION: "true"
+services:
+  database:
+    container_name: pterodactyl-database
+    image: mariadb:10.5
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - /mnt/tank/docker/pterodactyl/panels/database:/var/lib/mysql
+    environment:
+      <<: *a1
+      MYSQL_DATABASE: panel
+      MYSQL_USER: pterodactyl
+    networks:
+      - internal
+  cache:
+    container_name: pterodactyl-cache
+    image: redis:alpine
+    restart: always
+    networks:
+      - internal
+  panel:
+    container_name: pterodactyl-panel
+    image: ghcr.io/pterodactyl/panel:latest
+    restart: always
+    links:
+      - database
+      - cache
+    volumes:
+      - /mnt/tank/docker/pterodactyl/panels/var/:/app/var/
+      - /mnt/tank/docker/pterodactyl/panels/nginx/:/etc/nginx/http.d/
+      - /mnt/tank/docker/pterodactyl/panels/certs/:/etc/letsencrypt/
+      - /mnt/tank/docker/pterodactyl/panels/logs/:/app/storage/logs
+    environment:
+      <<:
+        - *a2
+        - *a3
+      DB_PASSWORD: $MYSQL_PASSWORD
+      APP_ENV: production
+      APP_ENVIRONMENT_ONLY: "false"
+      CACHE_DRIVER: redis
+      SESSION_DRIVER: redis
+      QUEUE_DRIVER: redis
+      REDIS_HOST: cache
+      DB_HOST: database
+      DB_PORT: $MYSQL_PORT
+    networks:
+      - default
+      - internal
+networks:
+  internal:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+  default:
+    external: true
+    name: nginx-proxy-manager

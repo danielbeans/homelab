@@ -1,0 +1,9 @@
+---
+version: "3.8"
+services:
+  playit:
+    container_name: playit
+    image: ghcr.io/playit-cloud/playit-agent:latest
+    network_mode: host
+    environment:
+      - SECRET_KEY=$SECRET_KEY

@@ -1,0 +1,16 @@
+---
+version: "3.8"
+services:
+  homarr:
+    container_name: homarr
+    image: ghcr.io/homarr-labs/homarr:latest
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /mnt/tank/docker/homearr/appdata:/appdata
+    environment:
+      - SECRET_ENCRYPTION_KEY=$SECRET_ENCRYPTION_KEY
+networks:
+  default:
+    external: true
+    name: nginx-proxy-manager

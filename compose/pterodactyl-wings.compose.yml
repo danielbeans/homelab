@@ -1,0 +1,22 @@
+---
+version: "3.8"
+services:
+  wings:
+    container_name: pterodactyl-wings
+    image: ghcr.io/pterodactyl/wings:latest
+    restart: always
+    network_mode: host
+    tty: true
+    environment:
+      TZ: $TIMEZONE
+      WINGS_UID: $WINGS_UID
+      WINGS_GID: $WINGS_GID
+      WINGS_USERNAME: $WINGS_USERNAME
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/containers/:/var/lib/docker/containers/
+      - /etc/ssl/certs:/etc/ssl/certs:ro
+      - /mnt/tank/docker/pterodactyl/wings/etc/:/etc/pterodactyl/
+      - /mnt/tank/docker/pterodactyl/wings/var/lib/:/mnt/tank/docker/pterodactyl/wings/var/lib/
+      - /mnt/tank/docker/pterodactyl/wings/var/log/:/mnt/tank/docker/pterodactyl/wings/var/log/
+      - /mnt/tank/docker/pterodactyl/wings/tmp/:/mnt/tank/docker/pterodactyl/wings/tmp/

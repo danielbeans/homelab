@@ -1,0 +1,18 @@
+---
+version: "3.8"
+services:
+  tailscale:
+    container_name: tailscale
+    image: tailscale/tailscale:latest
+    network_mode: host
+    environment:
+      - TS_AUTHKEY=$TAILSCALE_AUTHKEY
+      - TS_STATE_DIR=/var/lib/tailscale
+      - TS_USERSPACE=false
+    volumes:
+      - /mnt/tank/tailscale/state:/var/lib/tailscale
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - net_admin
+    restart: unless-stopped
