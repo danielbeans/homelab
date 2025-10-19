@@ -1,6 +1,5 @@
 # https://github.com/trentnbauer/agg/blob/main/docker-compose/cloudflared.yml
 ---
-version: "3.8"
 services:
   cloudflared:
     container_name: cloudflared

@@ -1,6 +1,5 @@
 # More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
 ---
-version: "3.8"
 services:
   pihole:
     container_name: pihole
