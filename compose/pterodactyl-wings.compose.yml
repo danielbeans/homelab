@@ -4,7 +4,11 @@ services:
     container_name: pterodactyl-wings
     image: ghcr.io/pterodactyl/wings:latest
     restart: always
-    network_mode: host
+    networks:
+      - wings0
+    ports:
+      - $HOST_PORT_DAEMON:$CONTAINER_PORT_DAEMON
+      - $HOST_PORT_WINGS_SFTP:$CONTAINER_PORT_WINGS_SFTP
     tty: true
     environment:
       TZ: $TIMEZONE
@@ -19,3 +23,12 @@ services:
       - /mnt/tank/docker/pterodactyl/wings/var/lib/:/mnt/tank/docker/pterodactyl/wings/var/lib/
       - /mnt/tank/docker/pterodactyl/wings/var/log/:/mnt/tank/docker/pterodactyl/wings/var/log/
       - /mnt/tank/docker/pterodactyl/wings/tmp/:/mnt/tank/docker/pterodactyl/wings/tmp/
+networks:
+  wings0:
+    name: wings0
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "172.21.0.0/16"
+    driver_opts:
+      com.docker.network.bridge.name: wings0
