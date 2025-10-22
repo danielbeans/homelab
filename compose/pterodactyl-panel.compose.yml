@@ -22,7 +22,7 @@ services:
     restart: always
     command: --default-authentication-plugin=mysql_native_password
     volumes:
-      - /mnt/tank/docker/pterodactyl/panels/database:/var/lib/mysql
+      - $HOST_VOLUME_PATH/database:/var/lib/mysql
     environment:
       <<: *a1
       MYSQL_DATABASE: panel
@@ -43,10 +43,10 @@ services:
       - database
       - cache
     volumes:
-      - /mnt/tank/docker/pterodactyl/panels/var/:/app/var/
-      - /mnt/tank/docker/pterodactyl/panels/nginx/:/etc/nginx/http.d/
-      - /mnt/tank/docker/pterodactyl/panels/certs/:/etc/letsencrypt/
-      - /mnt/tank/docker/pterodactyl/panels/logs/:/app/storage/logs
+      - $HOST_VOLUME_PATH/var/:/app/var/
+      - $HOST_VOLUME_PATH/nginx/:/etc/nginx/http.d/
+      - $HOST_VOLUME_PATH/certs/:/etc/letsencrypt/
+      - $HOST_VOLUME_PATH/logs/:/app/storage/logs
     environment:
       <<:
         - *a2

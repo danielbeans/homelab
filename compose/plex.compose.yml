@@ -9,9 +9,8 @@ services:
       - PLEX_UID=$PLEX_UID
       - PLEX_GID=$PLEX_GID
     volumes:
-      - /mnt/tank/docker/plex:/config
-      - /mnt/tank/docker/plex:/transcode
-      - /mnt/tank/plex-media:/data
+      - $HOST_VOLUME_PATH:/config
+      - $HOST_VOLUME_MEDIA_PATH:/data
 networks:
   default:
     external: true

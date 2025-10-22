@@ -9,8 +9,8 @@ services:
       - 443:443
       - $HOST_PORT_ADMIN:$CONTAINER_PORT_ADMIN
     volumes:
-      - /mnt/tank/docker/nginx-proxy-manager/data:/data
-      - /mnt/tank/docker/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
+      - $HOST_VOLUME_PATH/data:/data
+      - $HOST_VOLUME_PATH/letsencrypt:/etc/letsencrypt
 networks:
   default:
     external: true

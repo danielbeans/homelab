@@ -19,10 +19,10 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /var/lib/docker/containers/:/var/lib/docker/containers/
       - /etc/ssl/certs:/etc/ssl/certs:ro
-      - /mnt/tank/docker/pterodactyl/wings/etc/:/etc/pterodactyl/
-      - /mnt/tank/docker/pterodactyl/wings/var/lib/:/mnt/tank/docker/pterodactyl/wings/var/lib/
-      - /mnt/tank/docker/pterodactyl/wings/var/log/:/mnt/tank/docker/pterodactyl/wings/var/log/
-      - /mnt/tank/docker/pterodactyl/wings/tmp/:/mnt/tank/docker/pterodactyl/wings/tmp/
+      - $HOST_VOLUME_PATH/etc/:/etc/pterodactyl/
+      - $HOST_VOLUME_PATH/var/lib/:$HOST_VOLUME_PATH/var/lib/
+      - $HOST_VOLUME_PATH/var/log/:$HOST_VOLUME_PATH/var/log/
+      - $HOST_VOLUME_PATH/tmp/:$HOST_VOLUME_PATH/tmp/
 networks:
   wings0:
     name: wings0

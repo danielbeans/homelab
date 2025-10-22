@@ -15,7 +15,7 @@ services:
       FTLCONF_webserver_api_password: $PI_HOLE_PASSWORD
       FTLCONF_dns_listeningMode: all
     volumes:
-      - /mnt/tank/docker/pi-hole:/etc/pihole
+      - $HOST_VOLUME_PATH:/etc/pihole
     cap_add:
       - NET_ADMIN
       - SYS_TIME
