@@ -11,7 +11,7 @@ services:
     volumes:
       $HOST_VOLUME_PATH/ingest:/cwa-book-ingest
       $HOST_VOLUME_PATH/config/app.db:/auth/app.db:ro
-    networks:
-      default:
-        external: true
-        name: nginx-proxy-manager
+networks:
+  default:
+    external: true
+    name: nginx-proxy-manager
