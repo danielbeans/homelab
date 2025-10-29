@@ -6,7 +6,7 @@ services:
     environment:
       - USE_BOOK_TITLE=true
       - TZ=$TIMEZONE
-      - CWA_DB_PATH=auth/app.db
+      - CWA_DB_PATH=/auth/app.db
     restart: unless-stopped
     volumes:
       - $HOST_VOLUME_PATH/ingest:/cwa-book-ingest
