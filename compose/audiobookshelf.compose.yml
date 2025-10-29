@@ -1,0 +1,14 @@
+---
+services:
+  audiobookshelf:
+    container_name: audiobookshelf
+    image: ghcr.io/advplyr/audiobookshelf:latest
+    volumes:
+      - $HOST_VOLUME_PATH/audiobooks:/audiobooks
+      - $HOST_VOLUME_PATH/metadata:/metadata
+      - $HOST_VOLUME_PATH/config:/config
+    restart: unless-stopped
+networks:
+  default:
+    external: true
+    name: nginx-proxy-manager
