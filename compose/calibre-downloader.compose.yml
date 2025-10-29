@@ -8,6 +8,8 @@ services:
       - TZ=$TIMEZONE
       - CWA_DB_PATH=/auth/app.db
     restart: unless-stopped
+    ports:
+      - ${HOST_PORT_HTTP}:${CONTAINER_PORT_HTTP}
     volumes:
       - $HOST_VOLUME_PATH/ingest:/cwa-book-ingest
       - $HOST_VOLUME_PATH/config/app.db:/auth/app.db:ro
