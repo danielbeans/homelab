@@ -4,13 +4,13 @@ services:
     container_name: calibre-downloader
     image: ghcr.io/calibrain/calibre-web-automated-book-downloader:latest
     environment:
-      USE_BOOK_TITLE: true
-      TZ: $TIMEZONE
-      CWA_DB_PATH: /auth/app.db
+      - USE_BOOK_TITLE: true
+      - TZ: $TIMEZONE
+      - CWA_DB_PATH: /auth/app.db
     restart: unless-stopped
     volumes:
-      $HOST_VOLUME_PATH/ingest:/cwa-book-ingest
-      $HOST_VOLUME_PATH/config/app.db:/auth/app.db:ro
+      - $HOST_VOLUME_PATH/ingest:/cwa-book-ingest
+      - $HOST_VOLUME_PATH/config/app.db:/auth/app.db:ro
 networks:
   default:
     external: true
