@@ -1,6 +1,6 @@
-# Set basic 755 and 644 folder and file permissions and user:group ownership
-
 #!/bin/bash
+
+# Set basic 755 and 644 folder and file permissions and user:group ownership
 
 # Check if both user and group arguments are provided
 if [ "$#" -ne 2 ]; then
