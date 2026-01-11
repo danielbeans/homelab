@@ -17,7 +17,7 @@ GROUP=$2
 
 echo "Applying permissions for $USER:$GROUP in $TARGET_PATH"
 
-sudo chown -R "$USER:$GROUP" .
+sudo chown -R "$USER:$GROUP" "$TARGET_PATH"
 
 sudo find "$TARGET_PATH" -type d -exec chmod 755 {} +
 
