@@ -15,7 +15,7 @@ TARGET_PATH=$3
 USER=$1
 GROUP=$2
 
-echo "Applying permissions for $USER:$GROUP in the current directory..."
+echo "Applying permissions for $USER:$GROUP in $TARGET_PATH"
 
 sudo chown -R "$USER:$GROUP" .
 
