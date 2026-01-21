@@ -4,7 +4,7 @@
 [![Nginx Proxy Manager](https://img.shields.io/badge/Proxy-NPM-00C7B7?style=flat-square&logo=nginx&logoColor=white)](https://nginxproxymanager.com/)
 [![Cloudflare](https://img.shields.io/badge/Network-Cloudflare-F38020?style=flat-square&logo=cloudflare&logoColor=white)](https://www.cloudflare.com/)
 [![Tailscale](https://img.shields.io/badge/VPN-Tailscale-496495?style=flat-square&logo=tailscale&logoColor=white)](https://tailscale.com/)
-[![Dockge](https://img.shields.io/badge/Stacks-Dockge-134e4a?style=flat-square&logo=docker&logoColor=white)](https://github.com/louislam/dockge)
+[![Komodo](https://img.shields.io/badge/Stacks-Dockge-134e4a?style=flat-square&logo=docker&logoColor=white)](https://github.com/moghtech/komodo)
 
 ---
 
@@ -23,7 +23,7 @@
 ```mermaid
 flowchart TB
  subgraph subGraph0["Docker Network"]
-        Dockge["🐳 Dockge UI"]
+        Komodo["🐳 Komodo UI"]
         NPM["🛡️ Nginx Proxy Manager"]
         Service1["App 1"]
   end
@@ -33,6 +33,6 @@ flowchart TB
   end
     User(("🌐 Internet")) -- Domain Name --> Router["🏠 Home Router"]
     Router -- Port 80/443 --> NPM
-    NPM -- Proxy Pass --> Dockge & Service1
-    Dockge -- Manages --> Service1
+    NPM -- Proxy Pass --> Komodo & Service1
+    Komodo -- Manages --> Service1
     Service1 -. Mount .-> Storage
