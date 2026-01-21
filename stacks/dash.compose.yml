@@ -1,6 +1,7 @@
 ---
 services:
   dash:
+    container_name: dash
     image: mauricenino/dashdot:latest
     restart: unless-stopped
     privileged: true
