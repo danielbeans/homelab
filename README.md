@@ -4,7 +4,7 @@
 [![Nginx Proxy Manager](https://img.shields.io/badge/Proxy-NPM-00C7B7?style=flat-square&logo=nginx&logoColor=white)](https://nginxproxymanager.com/)
 [![Cloudflare](https://img.shields.io/badge/Network-Cloudflare-F38020?style=flat-square&logo=cloudflare&logoColor=white)](https://www.cloudflare.com/)
 [![Tailscale](https://img.shields.io/badge/VPN-Tailscale-496495?style=flat-square&logo=tailscale&logoColor=white)](https://tailscale.com/)
-[![Komodo](https://img.shields.io/badge/Stacks-Dockge-134e4a?style=flat-square&logo=docker&logoColor=white)](https://github.com/moghtech/komodo)
+[![Komodo](https://img.shields.io/badge/Stacks-Komodo-134e4a?style=flat-square&logo=docker&logoColor=white)](https://github.com/moghtech/komodo)
 
 ---
 
