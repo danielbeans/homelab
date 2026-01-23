@@ -1,0 +1,76 @@
+---
+services:
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TIMEZONE
+    volumes:
+      - $HOST_VOLUME_PATH/radarr:/config
+      - $PLEX_MEDIA_PATH/movies:/movies
+      - $HOST_VOLUME_PATH/downloads:/downloads
+    restart: unless-stopped
+
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TIMEZONE
+    volumes:
+      - $HOST_VOLUME_PATH/sonarr:/config
+      - $PLEX_MEDIA_PATH/tv:/tv
+      - $PLEX_MEDIA_PATH/anime:/anime
+      - $HOST_VOLUME_PATH/downloads:/downloads
+    restart: unless-stopped
+
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:develop
+    container_name: prowlarr
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TIMEZONE
+    volumes:
+      - $HOST_VOLUME_PATH/prowlarr:/config
+    restart: unless-stopped
+
+  rdt-client:
+    image: rogerfar/rdtclient
+    container_name: rdt-client
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TIMEZONE
+    volumes:
+      - $HOST_VOLUME_PATH/rdtclient:/db
+      - $HOST_VOLUME_PATH/downloads:/downloads
+    restart: unless-stopped
+
+  configarr:
+    image: ghcr.io/raydak-labs/configarr
+    container_name: configarr
+    environment:
+      - TZ=$TIMEZONE
+    volumes:
+      - $HOST_VOLUME_PATH/configarr/config:/app/config
+      - $HOST_VOLUME_PATH/configarr/dockerrepos:/app/repos
+      - $HOST_VOLUME_PATH/configarr/custom/cfs:/app/cfs
+      - $HOST_VOLUME_PATH/configarr/custom/templates:/app/templates
+    restart: unless-stopped
+
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr
+    container_name: flaresolverr
+    environment:
+      - TZ=$TIMEZONE
+    volumes:
+      - $HOST_VOLUME_PATH/flaresolverr:/config
+    restart: unless-stopped
+networks:
+  default:
+    external: true
+    name: nginx-proxy-manager
