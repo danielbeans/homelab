@@ -39,11 +39,11 @@ services:
     container_name: pterodactyl-panel
     image: ghcr.io/pterodactyl/panel:latest
     restart: always
+    ports:
+      - $HOST_PORT_HTTP:80
     links:
       - database
       - cache
-    ports:
-      - $HOST_PORT_HTTP:$HOST_PORT_HTTP
     volumes:
       - $HOST_VOLUME_PATH/var/:/app/var/
       - $HOST_VOLUME_PATH/nginx/:/etc/nginx/http.d/
