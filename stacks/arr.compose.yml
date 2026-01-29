@@ -60,7 +60,7 @@ services:
       - $HOST_VOLUME_PATH/configarr/dockerrepos:/app/repos
       - $HOST_VOLUME_PATH/configarr/custom/cfs:/app/cfs
       - $HOST_VOLUME_PATH/configarr/custom/templates:/app/templates
-    restart: unless-stopped
+    restart: no
 
   flaresolverr:
     image: ghcr.io/flaresolverr/flaresolverr
