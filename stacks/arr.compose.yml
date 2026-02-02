@@ -61,8 +61,6 @@ services:
       - $HOST_VOLUME_PATH/configarr/custom/cfs:/app/cfs
       - $HOST_VOLUME_PATH/configarr/custom/templates:/app/templates
     restart: on-failure
-    healthcheck:
-      test: ["CMD", "exit", "0"]
 
   flaresolverr:
     image: ghcr.io/flaresolverr/flaresolverr
