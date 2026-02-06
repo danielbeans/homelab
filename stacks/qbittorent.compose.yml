@@ -1,0 +1,21 @@
+---
+services:
+    qbittorrent:
+      container_name: qbittorrent
+      image: lscr.io/linuxserver/qbittorrent:latest
+      environment:
+        - PUID=$PUID
+        - PGID=$PGID
+        - TZ=$TIMEZONE
+        - TORRENTING_PORT=$TORRENTING_PORT
+      volumes:
+        - $HOST_VOLUME_PATH/appdata:/config
+        - $HOST_DOWNLOAD_PATH:/downloads
+      ports:
+        - $TORRENTING_PORT:$TORRENTING_PORT
+        - $TORRENTING_PORT:$TORRENTING_PORT/udp
+      restart: unless-stopped
+networks:
+  default:
+    external: true
+    name: nginx-proxy-manager
