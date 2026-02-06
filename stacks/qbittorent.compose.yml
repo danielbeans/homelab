@@ -3,6 +3,7 @@ services:
     qbittorrent:
       container_name: qbittorrent
       image: lscr.io/linuxserver/qbittorrent:latest
+      network_mode: "service:gluetun"
       environment:
         - PUID=$PUID
         - PGID=$PGID
@@ -11,10 +12,24 @@ services:
       volumes:
         - $HOST_VOLUME_PATH/appdata:/config
         - $HOST_DOWNLOAD_PATH:/downloads
+      restart: unless-stopped
+  
+    gluetun:
+      image: qmcgaw/gluetun
+      container_name: gluetun
+      cap_add:
+        - NET_ADMIN
+      devices:
+        - /dev/net/tun:/dev/net/tun
       ports:
         - $TORRENTING_PORT:$TORRENTING_PORT
         - $TORRENTING_PORT:$TORRENTING_PORT/udp
-      restart: unless-stopped
+      environment:
+        - VPN_SERVICE_PROVIDER=$VPN_SERVICE_PROVIDER
+        - VPN_TYPE=$VPN_TYPE
+        - WIREGUARD_PRIVATE_KEY=$WIREGUARD_PRIVATE_KEY
+        - SERVER_COUNTRIES=$SERVER_COUNTRIES
+      restart: always
 networks:
   default:
     external: true
