@@ -1,16 +1,18 @@
-## Add your compose file here
+---
 services:
-  hello_world:
-    image: hello-world
-    # networks:
-    #   - default
-    # ports:
-    #   - 3000:3000
-    # volumes:
-    #   - data:/data
-
-# networks:
-#   default: {}
-
-# volumes:
-#   data:
+  shelfmark:
+    container_name: shelfmark
+    image: ghcr.io/calibrain/shelfmark:latest
+    environment:
+      - USE_BOOK_TITLE=true
+      - TZ=$TIMEZONE
+      - CWA_DB_PATH=/auth/app.db
+      - USE_CF_BYPASS=false
+    restart: unless-stopped
+    volumes:
+      - $HOST_VOLUME_PATH/ingest:/cwa-book-ingest
+      - $HOST_VOLUME_PATH/config/app.db:/auth/app.db:ro # Authentcation with CWA
+networks:
+  default:
+    external: true
+    name: nginx-proxy-manager
