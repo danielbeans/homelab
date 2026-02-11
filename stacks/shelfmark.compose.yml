@@ -7,7 +7,6 @@ services:
       - USE_BOOK_TITLE=true
       - TZ=$TIMEZONE
       - CWA_DB_PATH=/auth/app.db
-      - USE_CF_BYPASS=false
       - PUID=$PUID
       - PGID=$PGID
     restart: unless-stopped
