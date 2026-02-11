@@ -11,6 +11,7 @@ services:
       - PGID=$PGID
     restart: unless-stopped
     volumes:
+      - $HOST_VOLUME_PATH/config:/config
       - $CALIBRE_VOLUME_PATH/ingest:/books
       - $CALIBRE_VOLUME_PATH/config/app.db:/auth/app.db:ro # Authentcation with CWA
 networks:
