@@ -10,8 +10,8 @@ services:
       - USE_CF_BYPASS=false
     restart: unless-stopped
     volumes:
-      - $HOST_VOLUME_PATH/ingest:/cwa-book-ingest
-      - $HOST_VOLUME_PATH/config/app.db:/auth/app.db:ro # Authentcation with CWA
+      - $CALIBRE_VOLUME_PATH/ingest:/books
+      - $CALIBRE_VOLUME_PATH/config/app.db:/auth/app.db:ro # Authentcation with CWA
 networks:
   default:
     external: true
