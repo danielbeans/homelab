@@ -16,7 +16,7 @@ services:
   
     gluetun-qbit:
       image: qmcgaw/gluetun
-      container_name: gluetun
+      container_name: gluetun-qbit
       cap_add:
         - NET_ADMIN
       devices:
