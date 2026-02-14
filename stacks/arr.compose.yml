@@ -62,9 +62,9 @@ services:
       - $HOST_VOLUME_PATH/configarr/custom/templates:/app/templates
     restart: on-failure
 
-  flaresolverr:
+  flaresolverr-arr:
     image: ghcr.io/flaresolverr/flaresolverr
-    container_name: flaresolverr
+    container_name: flaresolverr-arr
     environment:
       - TZ=$TIMEZONE
     volumes:
