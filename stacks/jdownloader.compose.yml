@@ -25,9 +25,9 @@ services:
         - SERVER_COUNTRIES=$SERVER_COUNTRIES
       restart: always
 
-    flaresolverr-jd:
-      image: ghcr.io/flaresolverr/flaresolverr
-      container_name: flaresolverr-jd
-      volumes:
-        - $HOST_VOLUME_PATH/flaresolverr:/config
-      restart: unless-stopped
+  flaresolverr-jd:
+    image: ghcr.io/flaresolverr/flaresolverr
+    container_name: flaresolverr-jd
+    volumes:
+      - $HOST_VOLUME_PATH/flaresolverr:/config
+    restart: unless-stopped
