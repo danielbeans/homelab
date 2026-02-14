@@ -14,7 +14,7 @@ services:
         - $HOST_DOWNLOAD_PATH:/downloads
       restart: unless-stopped
   
-    gluetun:
+    gluetun-qb:
       image: qmcgaw/gluetun
       container_name: gluetun
       cap_add:
