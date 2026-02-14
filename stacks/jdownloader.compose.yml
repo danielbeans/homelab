@@ -7,7 +7,7 @@ services:
     restart: unless-stopped
     volumes:
       - $CLOUD_VOLUME_PATH/downloads:/output
-      - $HOST_VOLUME_PATH/jdownloader:/config
+      - $HOST_VOLUME_PATH/config:/config
 
   gluetun-jd:
       image: qmcgaw/gluetun
@@ -24,3 +24,10 @@ services:
         - WIREGUARD_PRIVATE_KEY=$WIREGUARD_PRIVATE_KEY
         - SERVER_COUNTRIES=$SERVER_COUNTRIES
       restart: always
+
+    flaresolverr-jd:
+      image: ghcr.io/flaresolverr/flaresolverr
+      container_name: flaresolverr-jd
+      volumes:
+        - $HOST_VOLUME_PATH/flaresolverr:/config
+      restart: unless-stopped
