@@ -13,6 +13,7 @@ services:
     volumes:
       - $HOST_VOLUME_PATH/config:/config
       - $CALIBRE_VOLUME_PATH/ingest:/books
+      - $AUDIOBOOKSHELF_VOLUME_PATH/audiobooks:/audiobooks
       - $CALIBRE_VOLUME_PATH/config/app.db:/auth/app.db:ro # Authentcation with CWA
 networks:
   default:
