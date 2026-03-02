@@ -44,8 +44,6 @@ services:
       - cache
     volumes:
       - $HOST_VOLUME_PATH/var/:/app/var/
-      - $HOST_VOLUME_PATH/nginx/:/etc/nginx/http.d/
-      - $HOST_VOLUME_PATH/certs/:/etc/letsencrypt/
       - $HOST_VOLUME_PATH/logs/:/app/storage/logs
     environment:
       <<:
