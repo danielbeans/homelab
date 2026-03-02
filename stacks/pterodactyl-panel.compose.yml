@@ -39,8 +39,6 @@ services:
     container_name: pterodactyl-panel
     image: ghcr.io/pterodactyl/panel:latest
     restart: always
-    ports:
-      - $HOST_PORT_HTTP:80
     links:
       - database
       - cache
