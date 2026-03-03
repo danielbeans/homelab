@@ -43,7 +43,7 @@ services:
       - database
       - cache
     ports:
-      - $HOST_PORT_HTTP:$HOST_PORT_HTTP
+      - $CONTAINER_PORT_HTTP:$HOST_PORT_HTTP
     volumes:
       - $HOST_VOLUME_PATH/var/:/app/var/
       - $HOST_VOLUME_PATH/logs/:/app/storage/logs
