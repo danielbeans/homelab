@@ -13,7 +13,7 @@
 | Category | Service |
 | :--- | :--- |
 | **Operating System** | [TrueNAS Electric Eel](https://www.truenas.com/truenas-scale/) |
-| **Virtualization** | [Docker Compose](https://docs.docker.com/compose/), [Dockge](https://dockge.kuma.pet/) |
+| **Virtualization** | [Docker Compose](https://docs.docker.com/compose/), [Komodo](https://github.com/moghtech/komodo) |
 | **Networking** | [Nginx Proxy Manager](https://nginxproxymanager.com/), [Cloudflare](https://www.cloudflare.com/) |
 | **VPN** | [Tailscale](https://tailscale.com/), [ProtonVPN](https://protonvpn.com/) |
 | **Automation** | [Ansible](https://www.ansible.com/), [Bash](https://www.gnu.org/software/bash/) |
