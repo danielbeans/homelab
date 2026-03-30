@@ -50,6 +50,14 @@ services:
       - $HOST_VOLUME_PATH/downloads:/downloads
     restart: unless-stopped
 
+  # decypharr:
+  #   image: cy01/blackhole:latest
+  #   container_name: decypharr
+  #   volumes:
+  #     - /mnt/:/mnt:rshared
+  #     -  $HOST_VOLUME_PATH/decypharr:/app
+  #   restart: unless-stopped
+
   configarr:
     image: ghcr.io/raydak-labs/configarr
     container_name: configarr
