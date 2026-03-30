@@ -46,8 +46,8 @@ services:
       - PGID=$PGID
       - TZ=$TIMEZONE
     volumes:
-      - $HOST_VOLUME_PATH/rdtclient:/db
-      - $HOST_VOLUME_PATH/downloads:/downloads
+      - $HOST_VOLUME_PATH/rdtclient:/data/db
+      - $HOST_VOLUME_PATH/downloads:/data/downloads
     restart: unless-stopped
 
   # decypharr:
