@@ -38,6 +38,23 @@ services:
       - $HOST_VOLUME_PATH/prowlarr:/config
     restart: unless-stopped
 
+  seerr:
+    image: ghcr.io/seerr-team/seerr:latest
+    init: true
+    container_name: seerr
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=$TIMEZONE
+    volumes:
+      - $HOST_VOLUME_PATH/seerr:/app/config
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://seerr:5055/api/v1/status || exit 1
+      start_period: 20s
+      timeout: 3s
+      interval: 15s
+      retries: 3
+    restart: unless-stopped
+
   rdt-client:
     image: rogerfar/rdtclient
     container_name: rdt-client
