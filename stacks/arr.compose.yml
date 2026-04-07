@@ -44,6 +44,8 @@ services:
     container_name: seerr
     environment:
       - LOG_LEVEL=debug
+      - PUID=$PUID
+      - PGID=$PGID
       - TZ=$TIMEZONE
     volumes:
       - $HOST_VOLUME_PATH/seerr:/app/config
