@@ -40,11 +40,11 @@ services:
 
   seerr:
     image: ghcr.io/seerr-team/seerr:latest
-    init: true
     container_name: seerr
+    init: true
+    user: $PUID:$PGID
     environment:
       - LOG_LEVEL=debug
-      - user=$PUID:$PGID
       - TZ=$TIMEZONE
     volumes:
       - $HOST_VOLUME_PATH/seerr:/app/config
