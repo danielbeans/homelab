@@ -19,6 +19,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /var/lib/docker/containers/:/var/lib/docker/containers/
       - /etc/ssl/certs:/etc/ssl/certs:ro
+      - /run/wings:/run/wings
       - $HOST_VOLUME_PATH/etc/:/etc/pterodactyl/
       - $HOST_VOLUME_PATH/var/lib/:$HOST_VOLUME_PATH/var/lib/
       - $HOST_VOLUME_PATH/var/log/:$HOST_VOLUME_PATH/var/log/
