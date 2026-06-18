@@ -1,0 +1,17 @@
+---
+services:
+  tome:
+    container_name: tome
+    image: ghcr.io/bndct-devops/tome:latest
+    environment:
+      - TOME_SECRET_KEY=$SECRET_KEY
+      - TOME_AUTO_IMPORT=$AUTO_IMPORT
+    volumes:
+      - $HOST_VOLUME_PATH/data:/data
+      - $HOST_VOLUME_PATH/books:/books
+      - $HOST_VOLUME_PATH/bindery:/bindery
+    restart: unless-stopped
+networks:
+  default:
+    external: true
+    name: nginx-proxy-manager
