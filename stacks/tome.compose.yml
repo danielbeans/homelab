@@ -6,6 +6,8 @@ services:
     environment:
       - TOME_SECRET_KEY=$SECRET_KEY
       - TOME_AUTO_IMPORT=$AUTO_IMPORT
+      - TOME_PORT=$PORT
+      - TOME_PUBLIC_URL=$PUBLIC_URL
     volumes:
       - $HOST_VOLUME_PATH/data:/data
       - $HOST_VOLUME_PATH/books:/books
