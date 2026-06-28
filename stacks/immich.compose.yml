@@ -6,6 +6,8 @@ services:
     volumes:
       - ${HOST_VOLUME_PATH}/data:/data
       - /etc/localtime:/etc/localtime:ro
+    env_file:
+      - .env
     depends_on:
       - redis
       - database
