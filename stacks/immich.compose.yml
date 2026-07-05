@@ -57,7 +57,7 @@ services:
     ports:
       - "8888:${DB_GUI_PORT}"
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${DB_USERNAME}
+      PGADMIN_DEFAULT_EMAIL: "${DB_USERNAME}@email.com"
       PGADMIN_DEFAULT_PASSWORD: ${DB_PASSWORD}
     volumes:
       - pgadmin-data:/var/lib/pgadmin
