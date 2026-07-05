@@ -54,6 +54,8 @@ services:
     image: dpage/pgadmin4
     container_name: pgadmin4_container
     restart: always
+    ports:
+      - "8888:${DB_GUI_PORT}"
     environment:
       PGADMIN_DEFAULT_EMAIL: ${DB_USERNAME}
       PGADMIN_DEFAULT_PASSWORD: ${DB_PASSWORD}
