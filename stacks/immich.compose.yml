@@ -3,6 +3,8 @@ services:
   immich:
     container_name: immich
     image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
+    ports:
+      - ${IMMICH_PORT}:${IMMICH_PORT}
     volumes:
       - ${HOST_VOLUME_PATH}/data:/data
       - /etc/localtime:/etc/localtime:ro
