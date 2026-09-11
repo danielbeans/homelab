@@ -10,7 +10,7 @@ services:
     volumes:
       - $HOST_VOLUME_PATH/config:/config
       - $HOST_VOLUME_PATH/ingest:/cwa-book-ingest
-      - $HOST_VOLUME_PATH/library:/calibre-library
+      - $HOST_MEDIA_PATH/ebooks:/calibre-library
     restart: unless-stopped
 networks:
   default:
