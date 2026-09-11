@@ -4,7 +4,7 @@ services:
     container_name: audiobookshelf
     image: ghcr.io/advplyr/audiobookshelf:latest
     volumes:
-      - $HOST_VOLUME_PATH/audiobooks:/audiobooks
+      - $HOST_MEDIA_PATH/audiobooks:/audiobooks
       - $HOST_VOLUME_PATH/metadata:/metadata
       - $HOST_VOLUME_PATH/config:/config
     restart: unless-stopped
