@@ -26,7 +26,7 @@ services:
     image: ghcr.io/calibrain/shelfmark:latest
     environment:
       - USE_BOOK_TITLE=true
-      - TZ=$TIMEZONE
+      - TZ=$SHELFMARK_TZ
       - CWA_DB_PATH=/auth/app.db
       - PUID=$PUID
       - PGID=$PGID
