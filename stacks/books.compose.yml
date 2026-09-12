@@ -44,6 +44,7 @@ services:
       - STORYTELLER_SECRET_KEY=$STORYTELLER_SECRET_KEY
       - PUID=$PUID
       - PGID=$PGID
+      - FORCE_USER_SETTING=true
     restart: unless-stopped
     volumes:
       - $HOST_VOLUME_PATH/storyteller:/data:rw
