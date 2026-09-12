@@ -10,7 +10,8 @@ services:
     volumes:
       - $HOST_VOLUME_PATH/calibre/config:/config
       - $HOST_VOLUME_PATH/calibre/ingest:/cwa-book-ingest
-      - $HOST_MEDIA_PATH/ebooks:/calibre-library
+      - $HOST_VOLUME_PATH/calibre/calibre-library:/calibre-library
+      - $HOST_MEDIA_PATH/ebooks:/ebooks
     restart: unless-stopped
   audiobookshelf:
     container_name: audiobookshelf
