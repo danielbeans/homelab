@@ -47,8 +47,8 @@ services:
     restart: unless-stopped
     volumes:
       - $HOST_VOLUME_PATH/storyteller:/data:rw
-      - $HOST_MEDIA_PATH/ebooks:/ebooks
-      - $HOST_MEDIA_PATH/audiobooks:/audiobooks
+      - $HOST_MEDIA_PATH/ebooks:/data/ebooks
+      - $HOST_MEDIA_PATH/audiobooks:/data/audiobooks
 networks:
   default:
     external: true
