@@ -1,1 +1,43 @@
+---
+services:
+  calibre:
+    container_name: calibre
+    image: crocodilestick/calibre-web-automated:latest
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TIMEZONE
+    volumes:
+      - $HOST_VOLUME_PATH/calibre/config:/config
+      - $HOST_VOLUME_PATH/calibre/ingest:/cwa-book-ingest
+      - $HOST_MEDIA_PATH/ebooks:/calibre-library
+    restart: unless-stopped
+  audiobookshelf:
+    container_name: audiobookshelf
+    image: ghcr.io/advplyr/audiobookshelf:latest
+    volumes:
+      - $HOST_VOLUME_PATH/audiobookshelf/metadata:/metadata
+      - $HOST_VOLUME_PATH/audiobookshelf/config:/config
+      - $HOST_MEDIA_PATH/audiobooks:/audiobooks
+    restart: unless-stopped
+  shelfmark:
+    container_name: shelfmark
+    image: ghcr.io/calibrain/shelfmark:latest
+    environment:
+      - USE_BOOK_TITLE=true
+      - TZ=$TIMEZONE
+      - CWA_DB_PATH=/auth/app.db
+      - PUID=$PUID
+      - PGID=$PGID
+    restart: unless-stopped
+    volumes:
+      - $HOST_VOLUME_PATH/config:/config
+      - $HOST_DOWNLOAD_PATH:/downloads
+      - $HOST_VOLUME_PATH/calibre/ingest:/books
+      - $HOST_MEDIA_PATH/audiobooks:/audiobooks
+      - $HOST_VOLUME_PATH/calibre/config/app.db:/auth/app.db:ro # Authentcation with CWA
+networks:
+  default:
+    external: true
+    name: nginx-proxy-manager
 
