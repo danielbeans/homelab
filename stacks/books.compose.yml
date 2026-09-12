@@ -6,7 +6,7 @@ services:
     environment:
       - PUID=$PUID
       - PGID=$PGID
-      - TZ=$TIMEZONE
+      - TZ=$CALIBRE_TZ
     volumes:
       - $HOST_VOLUME_PATH/calibre/config:/config
       - $HOST_VOLUME_PATH/calibre/ingest:/cwa-book-ingest
