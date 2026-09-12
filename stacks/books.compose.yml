@@ -2,7 +2,7 @@
 services:
   calibre:
     container_name: calibre
-    image: crocodilestick/calibre-web-automated:latest
+    image: ghcr.io/new-usemame/calibre-web-nextgen:latest
     environment:
       - PUID=$PUID
       - PGID=$PGID
