@@ -39,8 +39,7 @@ services:
       - $HOST_VOLUME_PATH/calibre/config/app.db:/auth/app.db:ro # Authentcation with CWA
   storyteller:
     container_name: storyteller
-    # image: registry.gitlab.com/storyteller-platform/storyteller:latest
-    image: storyteller-node-v24_21_0:latest # Locally built version with updated Node
+    image: registry.gitlab.com/storyteller-platform/storyteller:latest
     pull_policy: never
     security_opt:
       - seccomp:unconfined
