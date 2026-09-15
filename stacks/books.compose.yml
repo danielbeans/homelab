@@ -42,8 +42,8 @@ services:
     # image: registry.gitlab.com/storyteller-platform/storyteller:latest
     image: storyteller-node-v24_21_0:latest # Locally built version with updated Node
     pull_policy: never
-      security_opt:
-        - seccomp:unconfined
+    security_opt:
+      - seccomp:unconfined
     environment:
       - STORYTELLER_SECRET_KEY=$STORYTELLER_SECRET_KEY
       - PUID=$PUID
