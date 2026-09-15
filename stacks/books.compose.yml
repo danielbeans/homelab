@@ -39,8 +39,7 @@ services:
       - $HOST_VOLUME_PATH/calibre/config/app.db:/auth/app.db:ro # Authentcation with CWA
   storyteller:
     container_name: storyteller
-    # image: registry.gitlab.com/storyteller-platform/storyteller:latest
-    image: storyteller-node-v24_21_0:latest # Locally built version with updated Node
+    image: registry.gitlab.com/storyteller-platform/storyteller:latest
     pull_policy: never
     environment:
       - STORYTELLER_SECRET_KEY=$STORYTELLER_SECRET_KEY
@@ -49,8 +48,8 @@ services:
     restart: unless-stopped
     volumes:
       - $HOST_VOLUME_PATH/storyteller:/data:rw
-      - $HOST_MEDIA_PATH/ebooks:/data/ebooks
-      - $HOST_MEDIA_PATH/audiobooks:/data/audiobooks
+      - $HOST_MEDIA_PATH/ebooks:/data/ebooks:ro
+      - $HOST_MEDIA_PATH/audiobooks:/data/audiobooks:ro
 networks:
   default:
     external: true
