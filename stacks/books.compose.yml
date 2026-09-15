@@ -40,10 +40,8 @@ services:
   storyteller:
     container_name: storyteller
     image: registry.gitlab.com/storyteller-platform/storyteller:latest
-    pull_policy: never
-    security_opt:
-      - seccomp:unconfined
     environment:
+      - ENABLE_WEB_READER=true
       - STORYTELLER_SECRET_KEY=$STORYTELLER_SECRET_KEY
       - PUID=$PUID
       - PGID=$PGID
