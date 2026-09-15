@@ -40,7 +40,7 @@ services:
   storyteller:
     container_name: storyteller
     # image: registry.gitlab.com/storyteller-platform/storyteller:latest
-    image: storyteller-node-v24_21_0 # Locally built version with updated Node
+    image: storyteller-node-v24_21_0:latest # Locally built version with updated Node
     environment:
       - STORYTELLER_SECRET_KEY=$STORYTELLER_SECRET_KEY
       - PUID=$PUID
