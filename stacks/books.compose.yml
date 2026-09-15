@@ -43,7 +43,7 @@ services:
     image: storyteller-node-v24_21_0:latest # Locally built version with updated Node
     pull_policy: never
       security_opt:
-      - seccomp:unconfined
+        - seccomp:unconfined
     environment:
       - STORYTELLER_SECRET_KEY=$STORYTELLER_SECRET_KEY
       - PUID=$PUID
