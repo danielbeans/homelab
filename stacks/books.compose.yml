@@ -42,13 +42,13 @@ services:
     image: registry.gitlab.com/storyteller-platform/storyteller:latest
     environment:
       - STORYTELLER_SECRET_KEY=$STORYTELLER_SECRET_KEY
-      - PUID=0
-      - PGID=0
+      - PUID=$PUID
+      - PGID=$PGID
     restart: unless-stopped
     volumes:
       - $HOST_VOLUME_PATH/storyteller:/data:rw
-      - $HOST_MEDIA_PATH/ebooks:/data/ebooks
-      - $HOST_MEDIA_PATH/audiobooks:/data/audiobooks
+      - $HOST_MEDIA_PATH/ebooks:/data/ebooks:rw
+      - $HOST_MEDIA_PATH/audiobooks:/data/audiobooks:rw
 networks:
   default:
     external: true
