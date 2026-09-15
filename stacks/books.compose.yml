@@ -40,11 +40,10 @@ services:
   storyteller:
     container_name: storyteller
     image: registry.gitlab.com/storyteller-platform/storyteller:latest
-    pull_policy: never
     environment:
       - STORYTELLER_SECRET_KEY=$STORYTELLER_SECRET_KEY
-      # - PUID=$PUID
-      # - PGID=$PGID
+      - PUID=$PUID
+      - PGID=$PGID
     restart: unless-stopped
     volumes:
       - $HOST_VOLUME_PATH/storyteller:/data:rw
