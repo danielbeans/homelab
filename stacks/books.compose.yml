@@ -42,8 +42,8 @@ services:
     image: registry.gitlab.com/storyteller-platform/storyteller:latest
     environment:
       - STORYTELLER_SECRET_KEY=$STORYTELLER_SECRET_KEY
-      - PUID=$PUID
-      - PGID=$PGID
+      - PUID=0
+      - PGID=0
     restart: unless-stopped
     volumes:
       - $HOST_VOLUME_PATH/storyteller:/data:rw
