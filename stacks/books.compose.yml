@@ -48,6 +48,7 @@ services:
       - AUDIOBOOKS_DIR=/audiobooks
     volumes:
       - $HOST_VOLUME_PATH/bookbridge:/data
+      - $HOST_VOLUME_PATH/calibre/calibre-library:/calibre-library
       - $HOST_MEDIA_PATH/ebooks:/ebooks
       - $HOST_MEDIA_PATH/audiobooks:/audiobooks
 networks:
