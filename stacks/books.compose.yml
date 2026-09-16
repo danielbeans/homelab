@@ -45,7 +45,8 @@ services:
       - TZ=$BOOKDBRIDGE_TZ
     volumes:
       - $HOST_VOLUME_PATH/bookbridge:/data
-      - $HOST_MEDIA_PATH/ebooks:/data/ebooks
+      - $HOST_MEDIA_PATH/ebooks:/ebooks
+      - $HOST_MEDIA_PATH/audiobooks:/audiobooks
 networks:
   default:
     external: true
