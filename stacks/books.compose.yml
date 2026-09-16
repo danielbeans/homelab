@@ -44,6 +44,8 @@ services:
     environment:
       - TZ=$BOOKDBRIDGE_TZ
       - ABS_TOKEN=$ABS_TOKEN
+      - CWA_USERNAME=$CALIBRE_USER
+      - CWA_PASSWORD=$CALIBRE_PASS
       - BOOKS_DIR=/ebooks
       - AUDIOBOOKS_DIR=/audiobooks
     volumes:
