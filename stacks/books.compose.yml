@@ -50,6 +50,15 @@ services:
       - $HOST_VOLUME_PATH/storyteller:/data:rw
       - $HOST_MEDIA_PATH/ebooks:/data/ebooks:rw
       - $HOST_MEDIA_PATH/audiobooks:/data/audiobooks
+  bookbridge:
+    container_name: bookbridge
+    image: ghcr.io/cporcellijr/bookbridge:latest
+    restart: unless-stopped
+    environment:
+      - TZ=$BOOKDBRIDGE_TZ
+    volumes:
+      - $HOST_VOLUME_PATH/bookbridge:/data
+      - $HOST_MEDIA_PATH/ebooks:/data/ebooks
 networks:
   default:
     external: true
