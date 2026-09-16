@@ -43,6 +43,9 @@ services:
     restart: unless-stopped
     environment:
       - TZ=$BOOKDBRIDGE_TZ
+      - ABS_TOKEN=$ABS_TOKEN
+      - BOOKS_DIR=/ebooks
+      - AUDIOBOOKS_DIR=/audiobooks
     volumes:
       - $HOST_VOLUME_PATH/bookbridge:/data
       - $HOST_MEDIA_PATH/ebooks:/ebooks
