@@ -1,7 +1,7 @@
 ---
 services:
   paseo:
-    image: ghcr.io/getpaseo/paseo:latest
+    image: $PASEO_IMAGE
     container_name: paseo
     user: $PUID:$PGID
     environment:
