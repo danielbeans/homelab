@@ -1,0 +1,18 @@
+---
+services:
+  paseo:
+    image: ghcr.io/getpaseo/paseo:latest
+    container_name: paseo
+    user: $PUID:$PGID
+    environment:
+      - PASEO_PASSWORD=$PASEO_PASSWORD
+      - PASEO_HOSTNAMES=$PASEO_HOSTNAMES
+    volumes:
+      - $HOST_VOLUME_PATH:/home/paseo
+      - $HOST_CODE_PATH:/workspace
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: nginx-proxy-manager
