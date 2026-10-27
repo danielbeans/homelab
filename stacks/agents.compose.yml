@@ -3,7 +3,6 @@ services:
   paseo:
     image: $PASEO_IMAGE
     container_name: paseo
-    pull_policy: missing
     user: $PUID:$PGID
     environment:
       - PASEO_PASSWORD=$PASEO_PASSWORD
